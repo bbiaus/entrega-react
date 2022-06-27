@@ -1,8 +1,8 @@
 import React from "react";
 import "../stylesheets/NavBar.css";
-import CartWidget from "../componentes/CartWidget.js";
+import CartWidget from "./CartWidget.js";
 
-function NavBar() {
+function Navbar() {
   return (
     <nav className="navbar">
       <a href="./">
@@ -31,4 +31,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Navbar;

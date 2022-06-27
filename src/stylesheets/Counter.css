@@ -1,0 +1,55 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
+  width: 400px;
+  padding: 10px 10px;
+  height: 175px;
+  background-color: rgba(90, 90, 90, 0.164);
+}
+
+.amount{
+  font-weight: bold;
+}
+
+.title{
+  font-size:x-large;
+}
+
+.textArea{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px grey solid;
+}
+
+.button{
+  border: none;
+  height: 30px;
+  width: 30px;
+  background: transparent;
+}
+
+.button img{
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.submit{
+  width: 350px;
+  height: 40px;
+  font-size: 1em;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #1890ff;
+  background-color: white;
+  border: 2px #1890ff solid;
+  border-radius: 5px;
+}
