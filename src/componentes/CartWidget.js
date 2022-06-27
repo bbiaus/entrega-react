@@ -1,5 +1,6 @@
 import React from "react";
 import "../stylesheets/CartWidget.css";
+import cartLogo from "../imagenes/cart-logo.png"
 
 function CartWidget() {
   return (
@@ -7,7 +8,7 @@ function CartWidget() {
       <img
         className="cartLogo"
         alt="cartlogo"
-        src={require("../imagenes/cart-logo.png")}
+        src={cartLogo}
       />
     </a>
   );
