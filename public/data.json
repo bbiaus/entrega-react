@@ -1,0 +1,38 @@
+[
+	{
+		"producto": "Auriculares Sony",
+		"stock": 10,
+		"precio": 7000,
+		"descuento": 0.8,
+		"categoria": "Audio",
+		"id": 1,
+		"img": "./images/headphones.png"
+	},
+	{
+		"producto": "Teclado Logitech",
+		"stock": 7,
+		"precio": 5000,
+		"descuento": 0.9,
+		"categoria": "Mouse y teclados",
+		"id": 2,
+		"img": "./images/keyboard.png"
+	},
+	{
+		"producto": "Mouse Logitech",
+		"stock": 13,
+		"precio": 3000,
+		"descuento": 0.9,
+		"categoria": "Mouse y teclados",
+		"id": 3,
+		"img": "./images/mouse.png"
+	},
+	{
+		"producto": "Notebook HP",
+		"stock": 4,
+		"precio": 45000,
+		"descuento": 0.8,
+		"categoria": "Portátiles",
+		"id": 4,
+		"img": "./images/notebook.png"
+	}
+]

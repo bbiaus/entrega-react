@@ -20,7 +20,7 @@ h1 {
 }
 
 .App{
-  min-height: 100vh;
+  min-height: 75vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

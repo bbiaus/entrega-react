@@ -2,3 +2,8 @@
     width: 75px;
     height: 75px;
 }
+
+.cartLogo:hover{
+	transform: translateX(30px) rotate(-10deg);
+	transition: transform 1s;
+}

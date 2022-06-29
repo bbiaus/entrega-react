@@ -25,6 +25,8 @@
   font-size: xx-large;
 }
 
-.navbar a:hover{
+.navbar li:hover{
   color:bisque;
+	transform: scale(1.2);
+	transition: 0.75s;
 }

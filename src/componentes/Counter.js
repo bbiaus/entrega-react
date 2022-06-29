@@ -19,7 +19,7 @@ function Counter({ stock, initial, product }) {
   };
 
   return (
-    <div>
+    <div className="counter">
       <div className="container">
         <p className="title">{product}</p>
         
