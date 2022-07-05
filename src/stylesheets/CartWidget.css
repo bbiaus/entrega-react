@@ -4,6 +4,11 @@
 }
 
 .cartLogo:hover{
-	transform: translateX(30px) rotate(-10deg);
+	transform: rotate(-10deg) scale(1.1);
 	transition: transform 1s;
+}
+
+.cartAmount{
+	background-color: red;
+	color: white;
 }

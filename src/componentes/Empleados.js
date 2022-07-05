@@ -1,4 +1,3 @@
-import React from "react";
 import "../stylesheets/Empleados.css";
 
 function Empleados(props) {

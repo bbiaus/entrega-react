@@ -31,7 +31,7 @@ h1 {
   width: 100%;
 }
 
-.contenedor-principal{
+.body{
   min-height: 600px;
   display: flex;
   flex-direction: column;

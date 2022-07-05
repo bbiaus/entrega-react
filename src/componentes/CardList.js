@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "../stylesheets/Card.css"
+import "../stylesheets/Card.css";
 import Card from "./Card";
-import empresaLoading from "../imagenes/empresaLoading.png"
+import empresaLoading from "../imagenes/empresaLoading.png";
+import CardDetail from "./CardDetail";
 
-function Body() {
+function CardList() {
   const [info, setInfo] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -16,8 +17,8 @@ function Body() {
           .then((resp) => resp.json())
           .then((data) => {
             setInfo(data);
-						setIsLoading(false);
-					}),
+            setIsLoading(false);
+          }),
       2000
     );
   }, []);
@@ -32,11 +33,13 @@ function Body() {
       </div>
 
       <div className="catalogo">
-        {isLoading && <img alt="logo cargando" src={empresaLoading} className="loading"/>}
-        {info && info.map((i) => <Card product={i.producto} price={i.precio} stock={i.stock} img={i.img}/>)}
+        {isLoading && (
+          <img alt="logo cargando" src={empresaLoading} className="loading" />
+        )}
+        {info && info.map((i) => <Card myProduct={i} key={i.id} />)}
       </div>
     </section>
   );
 }
 
-export default Body;
+export default CardList;
