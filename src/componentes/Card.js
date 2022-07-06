@@ -1,5 +1,6 @@
 import "../stylesheets/Card.css";
 import Counter from "./Counter";
+import { Link } from 'react-router-dom'
 
 function Card({ myProduct }) {
   return (
@@ -13,7 +14,7 @@ function Card({ myProduct }) {
         />
         <div className="cardFooter">
           <p className="cardPrice">${myProduct.precio}</p>
-          <button className="btnDetails">Ver detalle del producto</button>
+          <Link to={`/productos/${myProduct.id}`} ><button className="btnDetails">Ver detalle del producto</button></Link>
           <p className="cardStock">Stock: {myProduct.stock}</p>
         </div>
       </div>

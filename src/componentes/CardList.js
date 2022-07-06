@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../stylesheets/Card.css";
 import Card from "./Card";
 import empresaLoading from "../imagenes/empresaLoading.png";
-import CardDetail from "./CardDetail";
 
 function CardList() {
   const [info, setInfo] = useState([]);

@@ -1,4 +1,4 @@
-import CardList from "./CardList";
+import CardList from "../../componentes/CardList";
 
 function CardListContainer(){
 	return(
