@@ -5,25 +5,23 @@ import { NavLink } from 'react-router-dom'
 function Navbar() {
   return (
     <nav className="navbar">
-      <NavLink className={(navData) => navData.isActive ? "active" : "" } to="./">
         <img
           className="navbar_logo"
           src={require("../imagenes/empresa-logo.png")}
           alt="logo"
         />
-      </NavLink>
       <ul>
         <li>
-          <NavLink className={(navData) => navData.isActive ? "active" : "" } to="./inicio">Inicio</NavLink>
+          <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/inicio">Inicio</NavLink>
         </li>
         <li>
-          <NavLink className={(navData) => navData.isActive ? "active" : "" } to="./tienda">Tienda</NavLink>
+          <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/tienda">Tienda</NavLink>
         </li>
         <li>
-          <NavLink className={(navData) => navData.isActive ? "active" : "" } to="./about">Sobre nosotros</NavLink>
+          <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/about">Sobre nosotros</NavLink>
         </li>
         <li>
-          <NavLink className={(navData) => navData.isActive ? "active" : "" } to="./contacto">Contacto</NavLink>
+          <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/contacto">Contacto</NavLink>
         </li>
       </ul>
       <CartWidget />

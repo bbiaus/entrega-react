@@ -15,7 +15,7 @@
 		"stock": 7,
 		"precio": 5000,
 		"descuento": 0.9,
-		"categoria": "Mouse y teclados",
+		"categoria": "Controles",
 		"info": "Logitech G Pro combina un KSP innovador e inteligente con duraderos interruptores mecánicos Romer-G de diseño de contacto doble redundante, para eliminar acciones involuntarias tales como clicks dobles. Clasificado con una duración de 70 millones de pulsaciones de teclado, Romer-G contribuye a una precisión continuada. Nuestro objetivo es ofrecer la experiencia perfecta con todas y cada una de las pulsaciones del teclado.",
 		"img": "images/keyboard.png"
 	},
@@ -25,7 +25,7 @@
 		"stock": 13,
 		"precio": 3000,
 		"descuento": 0.9,
-		"categoria": "Mouse y teclados",
+		"categoria": "Controles",
 		"info": "Aproveche al máximo su tiempo de juego con el mouse para juegos G203 disponible en una variedad de colores vibrantes. Con la tecnología LIGHTSYNC, un sensor de nivel de juego y un diseño clásico de 6 botones, iluminarás tu juego y tu escritorio.",
 		"img": "images/mouse.png"
 	},
@@ -65,7 +65,7 @@
 		"stock": 10,
 		"precio": 14000,
 		"descuento": 0.9,
-		"categoria": "Joysticks",
+		"categoria": "Controles",
 		"info": "El joystick DualShock 4 cuenta con nuevas innovaciones ofrecen experiencias de juego más envolventes, entre ellas un sensor de seis ejes altamente sensible o el panel táctil en la superior que ofrece formas totalmente nuevas de jugar e interactuar con los videojuegos. El nuevo botón Share te permite retransmitir y compartir vídeos con solo una pulsación.",
 		"img": "images/joystick.png"
 	}

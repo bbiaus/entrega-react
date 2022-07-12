@@ -1,10 +1,9 @@
 import "../stylesheets/Card.css";
-import Counter from "./Counter";
 import { Link } from 'react-router-dom'
 
 function Card({ myProduct }) {
+
   return (
-    <div className="cardCounter">
       <div className="cardContainer">
         <h4 className="cardTitle">{myProduct.producto}</h4>
         <img
@@ -18,8 +17,6 @@ function Card({ myProduct }) {
           <p className="cardStock">Stock: {myProduct.stock}</p>
         </div>
       </div>
-			<Counter stock={myProduct.stock} initial={0} product={myProduct.producto}/>
-    </div>
   );
 }
 

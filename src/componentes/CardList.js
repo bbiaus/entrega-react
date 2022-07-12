@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import "../stylesheets/Card.css";
 import Card from "./Card";
 import empresaLoading from "../imagenes/empresaLoading.png";
+import CardFilter from "./CardFilter";
+
 
 function CardList() {
-  const [info, setInfo] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
+
+	const [category, setCategory] = useState(null)
+	
 
   useEffect(() => {
     setIsLoading(true);
@@ -15,12 +20,14 @@ function CardList() {
         fetch("data.json")
           .then((resp) => resp.json())
           .then((data) => {
-            setInfo(data);
+            setProducts(data);
             setIsLoading(false);
           }),
       2000
     );
   }, []);
+
+	const categoryProducts = category ? products.filter(item => item.categoria === category) : products;
 
   return (
     <section className="body">
@@ -30,12 +37,12 @@ function CardList() {
           Todos los productos cuentan con una garantía de un minimo de 3 meses.
         </p>
       </div>
-
+			<CardFilter handleCategoryChange={setCategory} />
       <div className="catalogo">
         {isLoading && (
           <img alt="logo cargando" src={empresaLoading} className="loading" />
         )}
-        {info && info.map((i) => <Card myProduct={i} key={i.id} />)}
+        {categoryProducts && categoryProducts.map((i) => <Card myProduct={i} key={i.id} />)}
       </div>
     </section>
   );
