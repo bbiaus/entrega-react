@@ -5,20 +5,23 @@ import CardDetail from "./componentes/CardDetail.js";
 import { Routes, Route } from "react-router-dom";
 import EmpleadosList from "./pages/About/EmpleadosList.js";
 import NotFound from "./pages/NotFound";
+import { CartProvider } from "./componentes/CartContext";
 
 function App() {
   return (
-    <div className="App">
-      <div className="contenedor-header">
-        <Navbar />
+    <CartProvider>
+      <div className="App">
+        <div className="contenedor-header">
+          <Navbar />
+        </div>
+        <Routes>
+          <Route path="/tienda" element={<CardListContainer />}></Route>
+          <Route path="/about" element={<EmpleadosList />}></Route>
+          <Route path="/productos/:productId" element={<CardDetail />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
       </div>
-      <Routes>
-        <Route path="/tienda" element={<CardListContainer />}></Route>
-        <Route path="/about" element={<EmpleadosList />}></Route>
-        <Route path="/productos/:productId" element={<CardDetail />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
-      </Routes>
-    </div>
+    </CartProvider>
   );
 }
 

@@ -3,6 +3,7 @@ import "../stylesheets/Card.css";
 import Card from "./Card";
 import empresaLoading from "../imagenes/empresaLoading.png";
 import CardFilter from "./CardFilter";
+/* import { getFirestore, collection, getDocs } from "firebase/firestore" */
 
 
 function CardList() {
@@ -11,7 +12,6 @@ function CardList() {
   const [isLoading, setIsLoading] = useState(false);
 
 	const [category, setCategory] = useState(null)
-	
 
   useEffect(() => {
     setIsLoading(true);
@@ -27,6 +27,16 @@ function CardList() {
     );
   }, []);
 
+	/* useEffect(() => {
+		const db = getFirestore();
+
+		const productsRef = collection(db, "products")
+
+		getDocs(productsRef).then((snapshot) =>{
+				setProducts(snapshot.docs.map((doc) => doc.data))
+		})
+	}, [])
+ */
 	const categoryProducts = category ? products.filter(item => item.categoria === category) : products;
 
   return (
