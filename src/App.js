@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import EmpleadosList from "./pages/About/EmpleadosList.js";
 import NotFound from "./pages/NotFound";
 import { CartProvider } from "./componentes/CartContext";
+import Cart from "./componentes/Cart";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
           <Navbar />
         </div>
         <Routes>
-          <Route path="/tienda" element={<CardListContainer />}></Route>
+          <Route path="/store" element={<CardListContainer />}></Route>
           <Route path="/about" element={<EmpleadosList />}></Route>
+					<Route path="/cart" element={<Cart />}></Route>
           <Route path="/productos/:productId" element={<CardDetail />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>

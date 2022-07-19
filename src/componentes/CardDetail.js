@@ -3,7 +3,7 @@ import empresaLoading from "../imagenes/empresaLoading.png";
 import "../stylesheets/CardDetail.css";
 import { useParams } from "react-router-dom";
 import Counter from "./Counter";
-import { addToCart, CartContext } from "./CartContext";
+import { CartContext } from "./CartContext";
 
 function CardDetail() {
   const [info, setInfo] = useState(null);
