@@ -3,7 +3,7 @@ import "../stylesheets/Card.css";
 import Card from "./Card";
 import empresaLoading from "../imagenes/empresaLoading.png";
 import CardFilter from "./CardFilter";
-/* import { getFirestore, collection, getDocs } from "firebase/firestore" */
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore"
 
 
 function CardList() {
@@ -11,33 +11,25 @@ function CardList() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-	const [category, setCategory] = useState(null)
+	const [category, setCategory] = useState(null);
 
-  useEffect(() => {
-    setIsLoading(true);
-    setTimeout(
-      () =>
-        fetch("data.json")
-          .then((resp) => resp.json())
-          .then((data) => {
-            setProducts(data);
-            setIsLoading(false);
-          }),
-      2000
-    );
-  }, []);
-
-	/* useEffect(() => {
+	useEffect(() => {
 		const db = getFirestore();
 
-		const productsRef = collection(db, "products")
+		setIsLoading(true);
+
+		let productsRef = collection(db, "products")
+
+		if (category && category !== "Todo"){
+			productsRef = query(productsRef, where("categoria", "==", category))
+		}
 
 		getDocs(productsRef).then((snapshot) =>{
-				setProducts(snapshot.docs.map((doc) => doc.data))
+				setProducts(snapshot.docs.map((doc) => doc.data()))
+				setIsLoading(false);
 		})
-	}, [])
- */
-	const categoryProducts = category ? products.filter(item => item.categoria === category) : products;
+	}, [category])
+
 
   return (
     <section className="body">
@@ -52,7 +44,7 @@ function CardList() {
         {isLoading && (
           <img alt="logo cargando" src={empresaLoading} className="loading" />
         )}
-        {categoryProducts && categoryProducts.map((i) => <Card myProduct={i} key={i.id} />)}
+        {products && !isLoading && products.map((i) => <Card myProduct={i} key={i.id} />)}
       </div>
     </section>
   );

@@ -1,6 +1,12 @@
+.widget{
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: flex-end;
+}
+
 .cartLogo{
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
 }
 
 .cartLogo:hover{
@@ -9,6 +15,8 @@
 }
 
 .cartAmount{
-	background-color: red;
-	color: white;
+	border-radius: 100%;
+	background-color: #dc3545;
+	height: 28px;
+	width: 28px;
 }

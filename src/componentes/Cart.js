@@ -40,7 +40,7 @@ function Cart() {
                   <img alt="product" src={img} className="itemImg" />
                   <p>{producto}</p>
                   <p>x{quantity}</p>
-                  <button onClick={() => removeFromCart(id)}>
+                  <button className="removeItem" onClick={() => removeFromCart(id)}>
                     Eliminar producto
                   </button>
                   <p>${finalProductPrice}</p>
@@ -50,12 +50,15 @@ function Cart() {
           )}
         </div>
         {!noProducts && (
-          <div className="totalPriceContainer">
+          <div className="cartFooter">
             <button onClick={clearCart} className="cartReset">
               Limpiar carrito
             </button>
+						<button className="confirm">Confirmar compra</button>
+						<div className="totalPrice">
             <p>Suma total:</p>
             <p>${totalPrice}</p>
+						</div>
           </div>
         )}
       </div>

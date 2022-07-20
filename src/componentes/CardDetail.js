@@ -4,6 +4,7 @@ import "../stylesheets/CardDetail.css";
 import { useParams } from "react-router-dom";
 import Counter from "./Counter";
 import { CartContext } from "./CartContext";
+import { collection, doc, getDoc, getFirestore} from "firebase/firestore";
 
 function CardDetail() {
   const [info, setInfo] = useState(null);
@@ -16,39 +17,33 @@ function CardDetail() {
     addToCart(info, quantity);
   };
 
-  const BASE_URL = "http://localhost:3000/";
-
   const { addToCart } = useContext(CartContext);
 
-  useEffect(() => {
-    setIsLoading(true);
-    setTimeout(
-      () =>
-        fetch("../data.json")
-          .then((resp) => resp.json())
-          .then((data) => {
-            const productos = data.filter(
-              (item) => item.id == params.productId
-            );
-            setInfo(productos[0]);
-            setIsLoading(false);
-          }),
-      2000
-    );
-  }, [params.productId]);
+	useEffect(() => {
+		const db = getFirestore();
+
+		setIsLoading(true);
+
+		let productRef = doc(collection(db, "products"), params.productId)
+	
+		getDoc(productRef).then((snapshot) =>{
+				setInfo(snapshot.data())
+				setIsLoading(false);
+		})
+	}, [params.productId])
 
   return (
     <section className="body">
       {isLoading && (
         <img alt="logo cargando" src={empresaLoading} className="loading" />
       )}
-      {info && (
+      {info && !isLoading && (
         <>
           <h1 className="specificTitle">{info.producto}</h1>
           <img
             className="specificImg"
             alt={`Imagen de ${info.producto}`}
-            src={`${BASE_URL}${info.img}`}
+            src={info.img}
           />
           <p className="specificOldPrice">${info.precio}</p>
           <p className="specificNewPrice">${info.precio * info.descuento}</p>

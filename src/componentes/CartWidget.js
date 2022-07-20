@@ -12,7 +12,7 @@ function CartWidget() {
 	const itemsCount = cart.reduce((a, b) => a + b.quantity , 0)
 
   return (
-    <div>
+    <div className="widget">
       <NavLink
         className={(navData) => (navData.isActive ? "active" : "")}
         to="/cart"
@@ -20,7 +20,7 @@ function CartWidget() {
         <img className="cartLogo" alt="cartlogo" src={cartLogo} />
       </NavLink>
 
-      <p>{itemsCount}</p>
+      <p className="cartAmount">{itemsCount}</p>
     </div>
   );
 }
