@@ -11,7 +11,6 @@ export const CartProvider = ({ defaultValue = [], children }) => {
     setCart([]);
   };
   const addToCart = (item, quantity) => {
-    console.log(item);
     if (isInCart(item.id)) {
       const newCart = [...cart];
       for (const element of newCart) {

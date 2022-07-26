@@ -2,6 +2,15 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import "../stylesheets/Cart.css";
+import Swal from "sweetalert2";
+import {
+  getFirestore,
+  collection,
+  writeBatch,
+  doc,
+  increment,
+  serverTimestamp,
+} from "firebase/firestore";
 
 function Cart() {
   const { cart, clearCart, removeFromCart } = useContext(CartContext);
@@ -9,6 +18,60 @@ function Cart() {
   const noProducts = !cart.length;
 
   let totalPrice = 0;
+
+  const newOrder = async (e) => {
+    e.preventDefault();
+
+    const { name, phone, email } = e.target;
+
+    if (name.value && phone.value && email.value) {
+      const total = cart.reduce((counter, product) => {
+        return counter + product.item.precio * product.quantity;
+      }, 0);
+
+      const order = {
+        client: { name: name.value, phone: phone.value, email: email.value },
+        items: cart.map((i) => ({
+          id: i.item.id,
+          name: i.item.producto,
+          price: i.item.precio,
+        })),
+        total,
+        date: serverTimestamp(),
+      };
+
+      const db = getFirestore();
+
+      const orderCollection = collection(db, "orders");
+
+      const productsCollection = collection(db, "products");
+
+      const newOrderRef = doc(orderCollection);
+
+      const batch = writeBatch(db);
+      /* usar para updatear el stock (fecha de compra?) */
+      batch.set(newOrderRef, order);
+      cart.forEach((product) => {
+        const currentProductRef = doc(productsCollection, product.item.id);
+        batch.update(currentProductRef, {
+          stock: increment(product.quantity * -1),
+        });
+      });
+      await batch.commit();
+
+      Swal.fire({
+        icon: "success",
+        title: "Compra realizada con éxito",
+        text: `Tu ID de orden para su seguimiento es: ${newOrderRef.id}`,
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Para realizar la compra se requiere información de contacto",
+      });
+    }
+  };
 
   return (
     <div className="cartBody">
@@ -40,7 +103,10 @@ function Cart() {
                   <img alt="product" src={img} className="itemImg" />
                   <p>{producto}</p>
                   <p>x{quantity}</p>
-                  <button className="removeItem" onClick={() => removeFromCart(id)}>
+                  <button
+                    className="removeItem"
+                    onClick={() => removeFromCart(id)}
+                  >
                     Eliminar producto
                   </button>
                   <p>${finalProductPrice}</p>
@@ -50,16 +116,27 @@ function Cart() {
           )}
         </div>
         {!noProducts && (
-          <div className="cartFooter">
-            <button onClick={clearCart} className="cartReset">
-              Limpiar carrito
-            </button>
-						<button className="confirm">Confirmar compra</button>
-						<div className="totalPrice">
-            <p>Suma total:</p>
-            <p>${totalPrice}</p>
-						</div>
-          </div>
+          <div>
+            <div className="cartFooter">
+              <button onClick={clearCart} className="cartReset">
+                Limpiar carrito
+              </button>
+              <div className="totalPrice">
+                <p>Suma total:</p>
+                <p>${totalPrice}</p>
+              </div>
+            </div>
+
+            <form onSubmit={newOrder}>
+              <label>Nombre:</label>
+              <input id="name" type="text" name="name" />
+              <label>Teléfono:</label>
+              <input id="phone" type="text" name="phone" />
+              <label>Email:</label>
+              <input id="email" type="email" name="email" />
+              <input type="submit" className="confirm" value="Confirmar compra" />
+            </form>
+          </ div>
         )}
       </div>
     </div>
