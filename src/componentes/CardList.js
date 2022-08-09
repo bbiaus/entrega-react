@@ -32,7 +32,7 @@ function CardList() {
 
 
   return (
-    <section className="body">
+    <section className="cardBody">
       <div>
         <h1>Catálogo de productos</h1>
         <p>

@@ -3,7 +3,6 @@ import CartWidget from "./CartWidget.js";
 import { NavLink } from 'react-router-dom'
 import { CartContext } from "./CartContext";
 import { useContext } from "react";
-import CardDetail from "./CardDetail";
 
 function Navbar() {
 

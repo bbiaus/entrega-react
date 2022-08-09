@@ -1,70 +1,89 @@
-.cartBody{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
+.cartBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.cartContainer{
-	width: 50%;
-	background-color: #D9D9D9;
-	border: 2px solid #8C8C8C;
-	border-radius: 5px;
-	padding: 50px 50px;
+.cartContainer {
+  width: 50%;
+  background-color: #d9d9d9;
+  border: 2px solid #8c8c8c;
+  border-radius: 5px;
+  padding: 50px 50px;
 }
 
-.cartItem{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	min-height: 150px;
-	padding: 0 30px;
-	margin-bottom: 40px;
-	border: 1px solid #BFBFBF;
-	border-radius: 5px;
-}
-
-.itemImg{
-	max-width: 150px;
-	max-height: 150px;
-	width: auto;
-	height: auto;
-}
-
-.cartFooter{
-	display: flex;
-  border-top: 1px solid #BFBFBF;
+.cartItem {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-	padding-top: 20px;
+  min-height: 150px;
+  padding: 0 30px;
+  margin-bottom: 40px;
+  border: 1px solid #bfbfbf;
+  border-radius: 5px;
 }
 
-.totalPrice{
-	padding-right: 30px;
+.itemImg {
+  max-width: 150px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
 }
 
-.removeItem{
-	height: 30px;
+.cartFooter {
+  display: flex;
+  border-top: 1px solid #bfbfbf;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.totalPrice {
+  padding-right: 30px;
+}
+
+.removeItem {
+  height: 30px;
   width: 115px;
-	background-color: #ffc107;
-	border-radius: 5px;
-	border: 2px solid black;
+  background-color: #ffc107;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
-.confirm{
-	height: 40px;
-	width: 150px;
-	color: black;
-	background-color: #28a745;
-	border-radius: 5px;
-	border: 2px solid black;
+.confirm {
+  height: 40px;
+  width: 150px;
+  color: black;
+  background-color: #28a745;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
-.cartReset{
-	height: 40px;
-	width: 150px;
-	color: black;
-	background-color: #dc3545;
-	border-radius: 5px;
-	border: 2px solid black;
+.cartReset {
+  height: 40px;
+  width: 150px;
+  color: black;
+  background-color: #dc3545;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.cartForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cartForm input{
+	margin-bottom: 10px;
+}
+
+.cartButton{
+	opacity: 0.85;
+}
+
+.cartButton:hover{
+	cursor: pointer;
+	opacity: 1;
 }

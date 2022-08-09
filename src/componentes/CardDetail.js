@@ -33,7 +33,7 @@ function CardDetail() {
 	}, [params.productId])
 
   return (
-    <section className="body">
+    <section className="detailBody">
       {isLoading && (
         <img alt="logo cargando" src={empresaLoading} className="loading" />
       )}

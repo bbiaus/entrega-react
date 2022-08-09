@@ -2,8 +2,16 @@
 	display: flex;
 	flex-wrap: wrap;
   justify-content: center;
-	margin: 50px 0;
 	width: 80%;
+}
+
+.cardBody{
+	min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardContainer{
@@ -33,14 +41,21 @@
 
 .btnDetails{
 	height: 30px;
-	width: 90%;
+	width: 75%;
 	margin: 10px 0;
 	font-weight: bold;
-  color: #1890ff;
+  color: #17a2b8;
   background-color: white;
-  border: 2px #1890ff solid;
+  border: 2px #17a2b8 solid;
   border-radius: 5px;
   cursor: pointer;
+	transition: 1s;
+}
+
+.btnDetails:hover{
+	border: 2px #007bff solid;
+	color: #007bff;
+	transform: scale(1.05);
 }
 
 .cardTitle{

@@ -1,11 +1,11 @@
-import "../stylesheets/Empleados.css";
+import "./Empleados.css";
 
 function Empleados(props) {
   return (
     <div className="contenedor-empleado">
       <img
         className="imagen-empleado"
-        src={require(`../imagenes/empleado-${props.imagen}.jpg`)}
+        src={require(`../../imagenes/empleado-${props.imagen}.jpg`)}
         alt="Foto de Leo"
       />
       <div className="contenedor-texto-empleado">

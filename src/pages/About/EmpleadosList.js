@@ -1,4 +1,4 @@
-import Empleados from "../../componentes/Empleados";
+import Empleados from "./Empleados";
 
 function EmpleadosList() {
   return (

@@ -59,4 +59,16 @@
   border: 2px #1890ff solid;
   border-radius: 5px;
   cursor: pointer;
+	transition: 0.5s;
+}
+
+.submit a{
+	text-decoration: none;
+	color: inherit;
+}
+
+.submit:hover{
+	background-color: aliceblue;
+	color: #1578d4;
+	border: 2px #1578d4 solid;
 }

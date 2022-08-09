@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import "../stylesheets/Cart.css";
 import Swal from "sweetalert2";
@@ -14,6 +14,8 @@ import {
 
 function Cart() {
   const { cart, clearCart, removeFromCart } = useContext(CartContext);
+
+	const navigate = useNavigate()
 
   const noProducts = !cart.length;
 
@@ -64,6 +66,10 @@ function Cart() {
         title: "Compra realizada con éxito",
         text: `Tu ID de orden para su seguimiento es: ${newOrderRef.id}`,
       });
+
+		clearCart()
+		navigate("../home")
+
     } else {
       Swal.fire({
         icon: "error",
@@ -104,7 +110,7 @@ function Cart() {
                   <p>{producto}</p>
                   <p>x{quantity}</p>
                   <button
-                    className="removeItem"
+                    className="removeItem cartButton"
                     onClick={() => removeFromCart(id)}
                   >
                     Eliminar producto
@@ -118,7 +124,7 @@ function Cart() {
         {!noProducts && (
           <div>
             <div className="cartFooter">
-              <button onClick={clearCart} className="cartReset">
+              <button onClick={clearCart} className="cartReset cartButton">
                 Limpiar carrito
               </button>
               <div className="totalPrice">
@@ -127,14 +133,14 @@ function Cart() {
               </div>
             </div>
 
-            <form onSubmit={newOrder}>
-              <label>Nombre:</label>
+            <form onSubmit={newOrder} className="cartForm">
+              <label>*Nombre:</label>
               <input id="name" type="text" name="name" />
-              <label>Teléfono:</label>
+              <label>*Teléfono:</label>
               <input id="phone" type="text" name="phone" />
-              <label>Email:</label>
+              <label>*Email:</label>
               <input id="email" type="email" name="email" />
-              <input type="submit" className="confirm" value="Confirmar compra" />
+              <input type="submit" className="confirm cartButton" value="Confirmar compra" />
             </form>
           </ div>
         )}

@@ -1,0 +1,26 @@
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  background-color: #333;
+  color: white;
+	margin-top: 90px;
+}
+
+.footerContainer img {
+  max-width: 60px;
+  max-height: 30px;
+  width: auto;
+  height: auto;
+}
+
+.footerContainer a {
+  margin: 0px 10px;
+}
+
+.shopInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
